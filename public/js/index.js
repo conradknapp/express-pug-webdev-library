@@ -1,3 +1,3 @@
-import searchAhead from "./modules/search";
+import onSearch from "./modules/search";
 
-searchAhead(document.querySelector('input[name="search"]'));
+onSearch(document.querySelector('input[name="search"]'));

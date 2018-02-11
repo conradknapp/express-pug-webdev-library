@@ -1,12 +1,12 @@
 const mongoose = require("mongoose");
 const Book = mongoose.model("Book");
+const multer = require("multer");
 
 exports.homePage = (req, res) => {
   res.render("layout");
 };
 
 exports.searchBooks = async (req, res) => {
-  // res.json({ it: "worked" });
   const book = await Book.find(
     {
       $text: {
@@ -19,6 +19,11 @@ exports.searchBooks = async (req, res) => {
       }
     }
   );
-  // .limit(10);
   res.json(book);
 };
+
+exports.bookPage = (req, res) => {
+  res.render("results");
+};
+
+exports.bookUpload = (req, res) => {};

@@ -1,9 +1,11 @@
 head
+  script(defer src="https://use.fontawesome.com/releases/v5.0.6/js/all.js")
   link(rel="stylesheet", href="/css/style.css")
 body
   .view
     .logo
-      h1 DevLib
+      h1
+        a(href="/") DevLib
     .links
       a(href="#") Main
       a(href="#") JS
@@ -12,13 +14,17 @@ body
     aside
       p This is the Devlib online library. We are pleased to present open source books for web development.
       br
-      p Oh the Supreme Father! Oh the Source of the Universe! Oh the Father of the World, our Strength and Support! Oh compassionate Lord, Gracious to all! Oh the incomparable teacher outside of any tradition! Oh the Supreme Lord! Gracefully send down to us The gift of right thinking, So we can serve humanity And make this world a paradise. 
+      p Each day acquire something that will fortify you against poverty, against death, indeed against other misfortunes as well; and after you have run over many thoughts, select one to be thoroughly digested that day. This is my own custom; from the many things which I have read, I claim some one part for myself.
       br
-      p - Dhirendra Brahmachari
+      p - Seneca
     form(type="submit" name="submit")
       input(type="text" name="search")
-      button(type="submit") Get Books!
-    main.results
-
+      button(type="submit")
+        i(class="fas fa-search")
+    main
+      .results-title
+        h3.author-title Author
+        h3.subject-title Title, subject
+      .results
     block scripts
       script(src="/dist/App.bundle.js")

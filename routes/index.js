@@ -6,4 +6,6 @@ router.get("/", bookController.homePage);
 
 router.get("/api/search", bookController.searchBooks);
 
+router.get("/books/:bookId", bookController.bookPage);
+
 module.exports = router;

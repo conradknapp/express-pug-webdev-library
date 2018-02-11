@@ -2,15 +2,21 @@ import axios from "axios";
 
 function searchResultsHTML(books) {
   return books
-    .map(el => {
-      return `<div class="book-result"><a href="/books/${el._id}">
-      <strong>${el.title}</strong>
-    </a></div>`;
+    .map((el, i) => {
+      return `
+      <div style="animation-delay: ${0.2 *
+        (i + 1)}s" class="search-result-item">
+        <div class="author-result">${el.author}</div>
+
+        <div class="book-result"><a href="/books/${el._id}">
+        <strong>${el.title}</strong>
+      </a></div>
+      </div>`;
     })
     .join("");
 }
 
-function searchAhead(search) {
+function onSearch(search) {
   if (!search) return;
 
   const input = document.querySelector('input[name="search"]');
@@ -32,4 +38,4 @@ function searchAhead(search) {
   });
 }
 
-export default searchAhead;
+export default onSearch;

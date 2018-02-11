@@ -48,7 +48,20 @@ body {
 
 a,
 a:link {
-  color: #0d84fa;
+  color: #4dadf7;
+  transition: all 0.1s ease-in;
+  text-decoration: none;
+}
+
+a:hover,
+a:link:hover {
+  text-decoration: underline;
+  color: #228ae6;
+}
+
+a:focus,
+a:link:focus {
+  outline: 1px dotted currentColor;
 }
 
 .view {
@@ -116,8 +129,41 @@ main {
   color: white;
 }
 
+.results-title {
+  display: flex;
+}
+
+.author-title {
+  flex-basis: 40%;
+}
+
+.subject-title {
+  flex-basis: 60%;
+}
+
+.search-result-item {
+  display: flex;
+  margin: 2em 0;
+  opacity: 0;
+  animation: 1s slideInRight ease-in-out forwards;
+}
+
+@keyframes slideInRight {
+  0% {
+    transform: translateX(-30px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
 .book-result {
-  margin-bottom: 1em;
+  flex-basis: 60%;
+}
+
+.author-result {
+  flex-basis: 40%;
 }
 
 @media (max-width: 700px) {
