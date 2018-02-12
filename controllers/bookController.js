@@ -22,8 +22,27 @@ exports.searchBooks = async (req, res) => {
   res.json(book);
 };
 
-exports.bookPage = (req, res) => {
-  res.render("results");
+exports.bookPage = async (req, res) => {
+  const book = await Book.findOne({ _id: req.params.bookId });
+  res.render("results", { book });
 };
 
-exports.bookUpload = (req, res) => {};
+exports.bookUpload = async (req, res) => {
+  const book = await new Book({
+    _id: new mongoose.Types.ObjectId(),
+    title: req.body.title,
+    description: req.body.description,
+    author: req.body.author,
+    tags: req.body.tags,
+    bookImage: req.files.bookImage[0].path,
+    bookFile: req.files.bookFile[0].path
+  });
+  book
+    .save()
+    .then(result => {
+      console.log(result);
+    })
+    .catch(err => {
+      console.error(err);
+    });
+};

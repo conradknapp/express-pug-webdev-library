@@ -1,1 +1,26 @@
-p hi
+head
+  script(defer src="https://use.fontawesome.com/releases/v5.0.6/js/all.js")
+  link(rel="stylesheet", href="/css/style.css")
+body
+  .results-view
+    .logo
+      h1
+        a(href="/") DevLib
+    .links
+      a(href="#") Main
+      a(href="#") JS
+      a(href="#") HTML/CSS
+      a(href="#") Tools
+    main.book-details
+      .book-title
+        h3= book.title
+        h4= book.author
+      .book-description
+        p= book.description
+        .book-link
+          a(href= book.bookFile) Get
+      .image-container
+        img(src= book.bookImage class="book-image")
+
+    block scripts
+      script(src="/dist/App.bundle.js")

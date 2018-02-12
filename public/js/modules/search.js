@@ -8,7 +8,7 @@ function searchResultsHTML(books) {
         (i + 1)}s" class="search-result-item">
         <div class="author-result">${el.author}</div>
 
-        <div class="book-result"><a href="/books/${el._id}">
+        <div class="book-result"><a href="/${el._id}">
         <strong>${el.title}</strong>
       </a></div>
       </div>`;
@@ -19,9 +19,11 @@ function searchResultsHTML(books) {
 function onSearch(search) {
   if (!search) return;
 
-  const input = document.querySelector('input[name="search"]');
-  const button = document.querySelector('form[name="submit"]');
-  const searchResults = document.querySelector(".results");
+  var input = document.querySelector('input[name="search"]');
+  var button = document.querySelector('form[name="submit"]');
+  var searchResults = document.querySelector(".results");
+  var resultsTitle = document.querySelector(".results-title");
+  var lengthResults = document.querySelector(".results-length");
 
   button.addEventListener("submit", e => {
     if (!input.value) return;
@@ -32,7 +34,10 @@ function onSearch(search) {
     axios.get(`/api/search?q=${input.value}`).then(res => {
       if (res.data.length) {
         const html = searchResultsHTML(res.data);
-        document.querySelector(".results").innerHTML = html;
+        searchResults.innerHTML = html;
+        resultsTitle.style.display = "flex";
+        lengthResults.innerText = `${res.data.length} records found`;
+        console.log(res.data.length);
       }
     });
   });

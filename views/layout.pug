@@ -1,8 +1,7 @@
 head
-  script(defer src="https://use.fontawesome.com/releases/v5.0.6/js/all.js")
   link(rel="stylesheet", href="/css/style.css")
 body
-  .view
+  .home-view
     .logo
       h1
         a(href="/") DevLib
@@ -14,14 +13,17 @@ body
     aside
       p This is the Devlib online library. We are pleased to present open source books for web development.
       br
+      br
       p Each day acquire something that will fortify you against poverty, against death, indeed against other misfortunes as well; and after you have run over many thoughts, select one to be thoroughly digested that day. This is my own custom; from the many things which I have read, I claim some one part for myself.
       br
       p - Seneca
-    form(type="submit" name="submit")
-      input(type="text" name="search")
-      button(type="submit")
-        i(class="fas fa-search")
     main
+      form(type="submit" name="submit")
+        input(type="text" name="search")
+        button(type="submit")
+          svg(version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="13" height="14" viewBox="0 0 13 14")
+            path(d="M9 6.5q0-1.445-1.027-2.473t-2.473-1.027-2.473 1.027-1.027 2.473 1.027 2.473 2.473 1.027 2.473-1.027 1.027-2.473zM13 13q0 0.406-0.297 0.703t-0.703 0.297q-0.422 0-0.703-0.297l-2.68-2.672q-1.398 0.969-3.117 0.969-1.117 0-2.137-0.434t-1.758-1.172-1.172-1.758-0.434-2.137 0.434-2.137 1.172-1.758 1.758-1.172 2.137-0.434 2.137 0.434 1.758 1.172 1.172 1.758 0.434 2.137q0 1.719-0.969 3.117l2.68 2.68q0.289 0.289 0.289 0.703z")
+      .results-length
       .results-title
         h3.author-title Author
         h3.subject-title Title, subject
