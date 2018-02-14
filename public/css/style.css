@@ -200,13 +200,25 @@ button {
 
 .image-container {
   grid-area: image;
-  text-align: center;
+  position: relative;
+  display: inline;
 }
 
-.book-image {
-  max-height: 500px;
-  padding-bottom: 2em;
-  object-fit: contain;
+.image-container img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  height: 100%;
+  width: 100%;
+  opacity: 0;
+  object-fit: cover;
+  transition: opacity 0.4s ease-in;
+}
+
+.image-container img.loaded {
+  opacity: 1;
 }
 
 .book-title {
@@ -240,6 +252,7 @@ button {
   }
   .book-details {
     grid-template-rows: auto 70px 200px;
+    grid-row-gap: 1em;
     grid-template-areas:
       "image"
       "title"

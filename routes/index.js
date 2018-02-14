@@ -12,7 +12,10 @@ const storage = multer.diskStorage({
   }
 });
 
-const upload = multer({ storage });
+const upload = multer({ storage }).fields([
+  { name: "bookImage", maxCount: 1 },
+  { name: "bookFile", maxCount: 1 }
+]);
 
 router.get("/", bookController.homePage);
 
@@ -20,13 +23,6 @@ router.get("/api/search", bookController.searchBooks);
 
 router.get("/:bookId", bookController.bookPage);
 
-router.post(
-  "/api/search",
-  upload.fields([
-    { name: "bookImage", maxCount: 1 },
-    { name: "bookFile", maxCount: 1 }
-  ]),
-  bookController.bookUpload
-);
+router.post("/api/search", upload, bookController.bookUpload);
 
 module.exports = router;

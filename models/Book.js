@@ -6,6 +6,7 @@ const bookSchema = new mongoose.Schema({
   author: String,
   description: String,
   bookImage: String,
+  bookSmallImage: String,
   bookFile: String,
   tags: [String]
 });
