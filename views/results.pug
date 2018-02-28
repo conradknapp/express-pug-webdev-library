@@ -17,7 +17,7 @@ body
       .book-description
         p= book.description
         .book-link
-          a(href= book.bookFile) Get
+          a(href= book.bookFile download= book.title) Get
       .image-container(data-large= book.bookImage)
         img(src= book.bookSmallImage class="book-image")
         div(style="padding-bottom: 66.6%;")
